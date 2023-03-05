@@ -1,0 +1,21 @@
+.box {
+  box-sizing: border-box;
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px 16px;
+  gap: 10px;
+
+  position: absolute;
+  width: 165px;
+  height: 47px;
+  left: 1160px;
+  top: 13px;
+
+  background-color: #121212;
+  color: var(--color-primary);
+  border: 1px solid #34c94b;
+  border-radius: 12px;
+}
