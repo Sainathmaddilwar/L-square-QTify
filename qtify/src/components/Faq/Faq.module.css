@@ -1,5 +1,12 @@
 .accordion {
-  width: 1135px;
-  height: 78px;
-  padding-left: 152px;
+  display: flex;
+  flex-direction: column;
+  /* padding: 1135px 78px; */
+  /* width: 1135px;
+  height: 78px; */
+  /* padding-left: 152px; */
+}
+.faq_text {
+  color: white;
+  text-align: center;
 }
