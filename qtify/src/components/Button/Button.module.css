@@ -2,17 +2,7 @@
   box-sizing: border-box;
 }
 .button {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   padding: 10px 30px;
-  gap: 10px;
-
-  position: absolute;
-  width: 165px;
-  height: 47px;
-  left: 1150px;
-  top: 13px;
 
   background-color: var(--color-black);
   color: var(--color-primary);

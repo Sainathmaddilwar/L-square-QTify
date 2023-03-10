@@ -1,29 +1,36 @@
 .input {
   box-sizing: border-box;
 
-  position: absolute;
+  /* position: absolute;
   width: 568px;
   height: 48px;
   left: 376px;
-  top: 13px;
-
+  top: 13px; */
+  /* padding: ; */
   background: var(--color-white);
   border: 1px solid var(--color-black);
-  border-radius: 8px;
+  /* border-radius: 8px; */
+  padding: 10px 80px;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
 }
 .btn {
   box-sizing: border-box;
-
-  position: absolute;
+  padding: 12px 25px;
+  /* position: absolute;
   width: 66px;
   height: 48px;
   left: 938px;
-  top: 13px;
-
+  top: 13px; */
+  margin-left: -3px;
   background: #ffffff;
   border: 1px solid #121212;
   border-radius: 0px 8px 8px 0px;
 }
 .svg {
   margin: auto;
+}
+.search_bar {
+  display: flex;
+  align-items: center;
 }

@@ -2,8 +2,13 @@ import React from "react";
 import styles from "../Search/Search.module.css";
 function Search() {
   return (
-    <div>
-      <input className={styles.input} />
+    <div className={styles.search_bar}>
+      <input
+        className={styles.input}
+        value="Search a song of your choice"
+        onBlurCapture="sa"
+        onClick={(e) => (e.target.value = "")}
+      />
       <button className={styles.btn}>
         <svg
           className={styles.svg}
