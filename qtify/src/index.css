@@ -50,6 +50,7 @@ h6 {
 }
 body {
   background-color: black;
+  overflow-x: hidden;
 }
 .rec.rec-arrow {
   background-color: var(--color-primary);
