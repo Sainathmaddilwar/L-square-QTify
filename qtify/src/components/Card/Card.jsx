@@ -5,7 +5,7 @@ function Card() {
     <div className={styles.card_container}>
       <div className={styles.card_img_btn_container}>
         <div>
-          <img src={require("../../assets/card-image.png")} alt="card-image" />
+          <img src={require("../../assets/card-image.png")} alt="card" />
         </div>
         <div className={styles.card_btn_container}>
           <button className={styles.card_btn}>100 Follows</button>

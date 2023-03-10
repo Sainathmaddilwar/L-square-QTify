@@ -51,3 +51,10 @@ h6 {
 body {
   background-color: black;
 }
+.rec.rec-arrow {
+  background-color: var(--color-primary);
+}
+
+.rec.rec-dot {
+  display: none;
+}
