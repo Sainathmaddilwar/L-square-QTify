@@ -17,11 +17,7 @@
 .btn {
   box-sizing: border-box;
   padding: 12px 25px;
-  /* position: absolute;
-  width: 66px;
-  height: 48px;
-  left: 938px;
-  top: 13px; */
+  cursor: pointer;
   margin-left: -3px;
   background: #ffffff;
   border: 1px solid #121212;
