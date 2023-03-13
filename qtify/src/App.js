@@ -9,7 +9,7 @@ function App() {
       <Navbar />
       <Hero />
       <CardCarousel />
-      {/* <Card /> */}
+      <Card />
       <Faq />
     </div>
   );
