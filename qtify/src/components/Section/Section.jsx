@@ -19,7 +19,7 @@ function Section({ title, dataSource }) {
     <div className={styles.section}>
       <div className={styles.wrapper}>
         <div style={{ color: "white" }}>
-          <h4>top</h4>
+          <h4>{title}</h4>
         </div>
         <div className={styles.showAll} onClick={handleToggle}>
           <h4>{isShowAll ? "collapse" : "Show All"}</h4>
