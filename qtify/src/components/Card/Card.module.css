@@ -15,6 +15,7 @@
   background-color: var(--color-white);
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+
   width: 159px;
   height: 40px;
   padding: 5px;
@@ -26,11 +27,18 @@
   text-align: center;
 }
 .card_container {
+  border-top-left-radius: 12px;
   width: 159px;
   height: 232px;
 }
 .card_img_btn_container {
-  border-radius: 12px;
+  /* border-top-left-radius: 12px; */
   width: 159px;
   height: 205px;
+}
+.img {
+  overflow: hidden;
+  height: 170px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }

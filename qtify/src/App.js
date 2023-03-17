@@ -1,16 +1,22 @@
+import { fetchTopSongs, fetchNewSongs } from "./api/api";
+import { useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-// import Card from "./components/Card/Card";
-import CardCarousel from "./components/CardCarousel/CardCarousel";
-import Faq from "./components/Faq/Faq";
+// import CardCarousel from "./components/CardCarousel/CardCarousel";
+// import Faq from "./components/Faq/Faq";
+// import Grid from "./components/Grid/Grid";
+import Section from "./components/Section/Section";
 function App() {
+  useEffect(() => {
+    fetchNewSongs().then((result) => {
+      console.log("new songs", result);
+    });
+  }, []);
   return (
     <div className="App">
       <Navbar />
       <Hero />
-      <CardCarousel />
-      <Card />
-      <Faq />
+      <Section title={"top album"} dataSource={fetchTopSongs} />
     </div>
   );
 }
