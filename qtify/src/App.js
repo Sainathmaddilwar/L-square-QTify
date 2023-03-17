@@ -7,11 +7,6 @@ import Hero from "./components/Hero/Hero";
 // import Grid from "./components/Grid/Grid";
 import Section from "./components/Section/Section";
 function App() {
-  useEffect(() => {
-    fetchNewSongs().then((result) => {
-      console.log("new songs", result);
-    });
-  }, []);
   return (
     <div className="App">
       <Navbar />

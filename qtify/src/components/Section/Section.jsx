@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "../Section/Section.module.css";
 import Card from "../Card/Card";
-import CardCarousel from "../CardCarousel/CardCarousel";
+import Carousel from "../Carousel/Carousel";
 function Section({ title, dataSource }) {
   const [cards, setCards] = useState([]);
   const [isShowAll, setIsShowAll] = useState(false);
@@ -43,7 +43,10 @@ function Section({ title, dataSource }) {
             })}
         </div>
       ) : (
-        <div style={{ color: "white" }}>carousel</div>
+        <Carousel
+          data={cards}
+          renderComponent={(data) => <Card data={data} />}
+        />
       )}
     </div>
   );

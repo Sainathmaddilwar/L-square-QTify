@@ -5,7 +5,7 @@ function Card({ data }) {
     <div className={styles.card_container}>
       <div className={styles.card_img_btn_container}>
         <div className={styles.img}>
-          <img src={data.image} alt="card" />
+          <img src={data.image} alt="card" loading="lazy" />
         </div>
         <div className={styles.card_btn_container}>
           <button className={styles.card_btn}>{data.follows} Follows</button>
