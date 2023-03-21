@@ -2,19 +2,39 @@ import React, { useState, useEffect } from "react";
 import styles from "../Section/Section.module.css";
 import Card from "../Card/Card";
 import Carousel from "../Carousel/Carousel";
-function Section({ title, dataSource }) {
+import Filters from "../Tabs/Filters";
+function Section({ title, dataSource, filterSource, type }) {
   const [cards, setCards] = useState([]);
   const [isShowAll, setIsShowAll] = useState(false);
+  const [filters, setFilters] = useState([{ key: "all", label: "all" }]);
+  const [selectedFilterdIndex, setSelectedFilteredIndex] = useState(0);
+  const fetchData = async (source) => {
+    const data = await source();
+    // console.log(data);
+    setCards(data);
+  };
   useEffect(() => {
-    // console.log(title);
-    dataSource().then((res) => {
-      // console.log(res);
-      setCards(res);
-    });
+    fetchData(dataSource);
+    if (filterSource) {
+      filterSource().then((data) => {
+        setFilters([...filters, ...data.data]);
+
+        // setFilters( data.data);
+        // console.log(data);
+      });
+    }
   }, []);
+  // console.log("Songs", cards);
   const handleToggle = () => {
     setIsShowAll((prevState) => !prevState);
   };
+
+  const filteredData = cards.filter((card) =>
+    selectedFilterdIndex !== 0
+      ? card.genre.key == filters[selectedFilterdIndex].key
+      : card
+  );
+  // console.log(filteredData);
   return (
     <div className={styles.section}>
       <div className={styles.wrapper}>
@@ -25,11 +45,18 @@ function Section({ title, dataSource }) {
           <h4>{isShowAll ? "collapse" : "Show All"}</h4>
         </div>
       </div>
+      {filterSource && (
+        <Filters
+          data={filters}
+          selectedFilterdIndex={selectedFilterdIndex}
+          setSelectedFilteredIndex={setSelectedFilteredIndex}
+        />
+      )}
 
       {isShowAll ? (
         <div className={styles.cardWrapper}>
           {cards &&
-            cards.map((card, idx) => {
+            filteredData.map((card, idx) => {
               return (
                 <Card
                   key={idx}
@@ -38,14 +65,15 @@ function Section({ title, dataSource }) {
                     image: card.image,
                     follows: card.follows,
                   }}
+                  type={type}
                 />
               );
             })}
         </div>
       ) : (
         <Carousel
-          data={cards}
-          renderComponent={(data) => <Card data={data} />}
+          data={filteredData}
+          renderComponent={(data) => <Card data={data} type={type} />}
         />
       )}
     </div>
