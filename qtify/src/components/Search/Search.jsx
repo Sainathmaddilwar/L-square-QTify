@@ -79,14 +79,41 @@ function Search({ placeHolder, albums }) {
       </form>
       {groupedOptions.length > 0 ? (
         <Listbox {...getListboxProps()}>
-          {groupedOptions.map((option, index) => (
-            <li
-              {...getOptionProps({ option, index })}
-              className={styles.listElements}
-            >
-              {option.title}
-            </li>
-          ))}
+          {groupedOptions.map((option, index) => {
+            const artists = option.songs.reduce((accumulator, currentValue) => {
+              accumulator.push(...currentValue.artists);
+              return accumulator;
+            }, []);
+            return (
+              <li
+                {...getOptionProps({ option, index })}
+                className={styles.listElements}
+              >
+                <div style={{ display: "flex", gap: "15px" }}>
+                  <img
+                    style={{ borderRadius: "5px" }}
+                    src={option.image}
+                    className={styles.listImage}
+                    alt="list Img"
+                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <p style={{ fontSize: "16px" }}>{option.title}</p>
+                    <p style={{ fontSize: "12px" }}>
+                      {artists.join(", ").substring(0, 40) + "....."}
+                    </p>
+                  </div>
+                </div>
+
+                <p style={{ marginTop: "10px" }}>{option.follows} Follows</p>
+              </li>
+            );
+          })}
         </Listbox>
       ) : null}
     </div>
