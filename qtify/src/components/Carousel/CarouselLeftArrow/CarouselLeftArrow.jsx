@@ -11,7 +11,8 @@ export default function CarouselLeftArrow() {
     swiper.on("slideChange", function () {
       setIsBeginning(swiper.isBeginning);
     });
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [swiper]);
 
   return (
     <div className={styles.leftNavigation}>
