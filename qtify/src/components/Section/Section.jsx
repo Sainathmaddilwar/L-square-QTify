@@ -14,6 +14,7 @@ function Section({ title, cards, filterSource, type }) {
         setFilters([...filters, ...data.data]);
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleToggle = () => {
