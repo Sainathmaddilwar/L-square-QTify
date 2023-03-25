@@ -1,18 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import styles from "../Search/Search.module.css";
 import useAutocomplete from "@mui/base/useAutocomplete";
 import { styled } from "@mui/system";
-
-const Label = styled("label")({
-  display: "block",
-});
-
-const Input = styled("input")(({ theme }) => ({
-  width: 200,
-  backgroundColor: theme.palette.mode === "light" ? "#fff" : "#000",
-  color: theme.palette.mode === "light" ? "#000" : "#fff",
-}));
 
 const Listbox = styled("ul")(({ theme }) => ({
   width: "100%",
@@ -45,7 +34,6 @@ function Search({ placeHolder, albums }) {
   };
   const {
     getRootProps,
-    getInputLabelProps,
     getInputProps,
     getListboxProps,
     getOptionProps,

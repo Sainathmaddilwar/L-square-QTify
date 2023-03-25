@@ -1,11 +1,11 @@
 import * as React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import styles from "../Tabs/Filters.module.css";
-import { useSwiper } from "swiper/react";
+// import { useSwiper } from "swiper/react";
 
 function a11yProps(index) {
   return {
@@ -15,7 +15,7 @@ function a11yProps(index) {
 }
 
 const Filters = ({ data, setSelectedFilteredIndex, selectedFilterdIndex }) => {
-  const [value, setValue] = React.useState(0);
+  // const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setSelectedFilteredIndex(newValue);
