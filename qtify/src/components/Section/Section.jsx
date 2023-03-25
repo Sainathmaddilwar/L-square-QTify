@@ -15,7 +15,7 @@ function Section({ title, cards, filterSource, type }) {
       });
     }
   }, []);
-  // console.log("Songs", cards);
+
   const handleToggle = () => {
     setIsShowAll((prevState) => !prevState);
   };
