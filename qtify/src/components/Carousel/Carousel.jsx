@@ -10,6 +10,7 @@ function Controls({ data }) {
 
   useEffect(() => {
     swiper.slideTo(0, 10);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return <div></div>;
