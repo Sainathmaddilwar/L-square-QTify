@@ -3,24 +3,15 @@ import styles from "../Section/Section.module.css";
 import Card from "../Card/Card";
 import Carousel from "../Carousel/Carousel";
 import Filters from "../Tabs/Filters";
-function Section({ title, dataSource, filterSource, type }) {
-  const [cards, setCards] = useState([]);
+function Section({ title, cards, filterSource, type }) {
   const [isShowAll, setIsShowAll] = useState(false);
   const [filters, setFilters] = useState([{ key: "all", label: "all" }]);
   const [selectedFilterdIndex, setSelectedFilteredIndex] = useState(0);
-  const fetchData = async (source) => {
-    const data = await source();
-    // console.log(data);
-    setCards(data);
-  };
+
   useEffect(() => {
-    fetchData(dataSource);
     if (filterSource) {
       filterSource().then((data) => {
         setFilters([...filters, ...data.data]);
-
-        // setFilters( data.data);
-        // console.log(data);
       });
     }
   }, []);
@@ -31,9 +22,10 @@ function Section({ title, dataSource, filterSource, type }) {
 
   const filteredData = cards.filter((card) =>
     selectedFilterdIndex !== 0
-      ? card.genre.key == filters[selectedFilterdIndex].key
+      ? card.genre.key === filters[selectedFilterdIndex].key
       : card
   );
+
   // console.log(filteredData);
   return (
     <div className={styles.section}>

@@ -1,39 +1,30 @@
-import {
-  fetchTopSongs,
-  fetchNewSongs,
-  fetchFilters,
-  fetchSongs,
-} from "./api/api";
-import { useEffect } from "react";
+import { fetchTopSongs, fetchNewSongs, fetchSongs } from "./api/api";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import Faq from "./components/Faq/Faq";
-import LineBreaker from "./components/LineBreaker/LineBreaker";
-import Section from "./components/Section/Section";
+
 import { StyledEngineProvider } from "@mui/material";
-/*
-  
-      <SongTab />
-      
-*/
+import { Outlet } from "react-router-dom";
 function App() {
+  const [cards, setCards] = useState([]);
+  const genrateData = async (type, source) => {
+    source().then((data) => {
+      setCards((prev) => {
+        return { ...prev, [type]: data };
+      });
+    });
+  };
+  useEffect(() => {
+    genrateData("topAlbums", fetchTopSongs);
+    genrateData("newAlbums", fetchNewSongs);
+    genrateData("songs", fetchSongs);
+  }, []);
+  // console.log(cards);
+  const { topAlbums = [], newAlbums = [], songs = [] } = cards;
   return (
     <div className="App">
       <StyledEngineProvider injectFirst>
-        <Navbar />
-        <Hero />
-        <Section title={"Top Album"} dataSource={fetchTopSongs} type="album" />
-        <br />
-        <Section title={"New Songs"} dataSource={fetchNewSongs} type="album" />
-        <LineBreaker />
-        <Section
-          title={"Songs"}
-          dataSource={fetchSongs}
-          filterSource={fetchFilters}
-          type="song"
-        />
-        <LineBreaker />
-        <Faq />
+        <Navbar albums={[...topAlbums, ...newAlbums]} />
+        <Outlet context={{ data: { topAlbums, newAlbums, songs } }} />
       </StyledEngineProvider>
     </div>
   );

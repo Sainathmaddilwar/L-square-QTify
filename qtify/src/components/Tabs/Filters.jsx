@@ -5,6 +5,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import styles from "../Tabs/Filters.module.css";
+import { useSwiper } from "swiper/react";
 
 function a11yProps(index) {
   return {
@@ -42,9 +43,10 @@ const Filters = ({ data, setSelectedFilteredIndex, selectedFilterdIndex }) => {
               },
             }}
           >
-            {data.map((ele) => {
+            {data.map((ele, idx) => {
               return (
                 <Tab
+                  key={idx}
                   label={ele.label}
                   {...a11yProps(0)}
                   className={styles.tab}
